@@ -7,5 +7,3 @@ Production demo is [Here](https://guitar-web.firebaseapp.com/)
 1. `git clone`
 2. `cd guitar-web-front`
 3. `npm install && npm start`
-
-Lisence : GNU GPLv3
