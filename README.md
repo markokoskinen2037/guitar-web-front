@@ -3,6 +3,8 @@ React app that helps you take full advantage of online learning resources - espe
 
 Production demo is [Here](https://guitar-web.firebaseapp.com/)
 
+Due to the videoplayers browser implementation, speedUp/speedDown features do not work on mobile - yet.
+
 ## How to install?
 1. `git clone`
 2. `cd guitar-web-front`
