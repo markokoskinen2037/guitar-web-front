@@ -36,7 +36,6 @@ export default class Player extends Component {
     } else {
       this.setState({ loop: true })
     }
-    console.log('loop set')
   }
 
   render() {
