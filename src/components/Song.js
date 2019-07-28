@@ -2,14 +2,25 @@ import React, { Component } from 'react'
 
 export default class Song extends Component {
   render() {
+
+    var favourite = false
+    if (this.props.favourites.includes(this.props.videoId)) {
+      favourite = true
+    }
+
+    var classname = "song"
+    if (favourite) {
+      classname = "song-favourite"
+    }
+
     return (
       <div
         onClick={() => {
           this.props.changeSongFunction(this.props.url)
         }}
-        className="song"
+        className={classname}
       >
-        <span className="playButton">PLAY</span>
+        <span onClick={() => this.props.addFavourite(this.props.videoId)} className="playButton">+</span>
 
         <span className="songName" style={{ fontFamily: 'Roboto' }}>
           {' '}
