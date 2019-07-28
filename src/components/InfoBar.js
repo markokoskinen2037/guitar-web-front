@@ -4,7 +4,6 @@ export default class InfoBar extends Component {
   setMessage = () => {}
 
   goFullscreen() {
-    console.log('aaaaaaaaaa')
     document.documentElement.requestFullscreen()
   }
 
