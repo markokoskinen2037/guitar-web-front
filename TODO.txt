@@ -1,30 +1,3 @@
-user-schema:
-    id:String (automatically generated)
-    username:String
-    password:String (encrypted)
-    email:String
-
-
-
-Backend:
-    Important:
-        [ ]    implement login system (node+jsonwebtoken?)
-        [ ]    implement password-reset via email
-        [ ]    user can toggle songs mastered status
-        [ ]    users playbackspeed for each song is saved.
-        [ ]    users playbackloop:setting is saved to database automatically
-
-
-Frontend:
-    Important
-        [ ]    login screen
-        [ ]    password reset screen
-        [ ]    footer
-
-    Style changes
-        [x]    move styles to css
-        [ ]    songlist fullwidth
-        [x]    infobar -height
-        [ ]    player and list to same component --> center that component
-        [ ]    background color for login.
-        [x]    replace playercontrols with prettier red buttons
+[] Selected song should be highligted.
+[x] Ability to mark songs as favourites. (Local/Session)
+[] Button to clear searchFilter.
