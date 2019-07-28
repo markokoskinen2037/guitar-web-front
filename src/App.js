@@ -1,3 +1,4 @@
+/* global gapi */
 import React, { Component } from 'react'
 import Player from './components/Player'
 import SongList from './components/SongList'
@@ -7,21 +8,96 @@ import './components/Style.css'
 
 class App extends Component {
   constructor(props) {
+
     super(props)
+
+
     this.state = {
       url: 'https://www.youtube.com/watch?v=Bmwdr9ZAK2I',
       playBackRate: 1,
+      playBackList: []
     }
   }
 
   changeSongFunction = newUrl => {
     console.log('changing song...')
     this.setState({ url: newUrl })
+    const element = document.getElementById("player")
+    element.scrollIntoView()
+  }
+
+
+  loadYoutubeApi() {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/client.js";
+
+    script.onload = () => {
+      gapi.load('client', () => {
+        gapi.client.setApiKey("AIzaSyCXai2x2-AsZXdlMiBldOzhvaI-6eCkgyE");
+        gapi.client.load('youtube', 'v3', () => {
+          this.setState({ gapiReady: true });
+          console.log("Gapi ready!")
+          this.getSongListFromGoogle()
+        });
+      });
+    };
+
+    document.body.appendChild(script);
   }
 
   setPlayBackRate = newRate => {
-    // alert(newRate);
     this.setState({ playBackRate: newRate })
+  }
+
+  componentDidMount() {
+    this.loadYoutubeApi();
+  }
+
+  getSongListFromGoogle(pageToken) {
+
+    var request = {
+      "part": "snippet",
+      "maxResults": 50,
+      "playlistId": "UUi5EIu8SCZ0DV-Gdui4QDiA"
+    }
+
+    if(pageToken){
+      request.pageToken = pageToken
+    }
+
+
+    return gapi.client.youtube.playlistItems.list(request)
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+
+                var temp = this.state.playBackList
+
+                response.result.items.forEach(item => {
+                 const videoId = item.snippet.resourceId.videoId
+                 const title = item.snippet.title
+                 const url = "https://www.youtube.com/watch?v=" + videoId
+
+                 const dataObject = {
+                   url: url,
+                   name: title
+                 }
+
+                 temp.push(dataObject)
+                });
+
+                console.log(temp)
+
+                this.setState({playBackList: temp})
+
+                const pageToken = response.result.nextPageToken
+                if(pageToken){
+                  this.getSongListFromGoogle(pageToken)
+                }
+
+
+              }.bind(this),
+              function(err) { console.error("getSongListFromGoogle error", err); });
   }
 
   render() {
@@ -34,12 +110,13 @@ class App extends Component {
         <div>
           <div>
             <Player
+            id="player"
               setPlayBackRate={this.setPlayBackRate}
               url={this.state.url}
             />
-            <SongList changeSongFunction={this.changeSongFunction} />
+            <SongList playBackList={this.state.playBackList} changeSongFunction={this.changeSongFunction} />
           </div>
-        </div>
+        </div>        
       </div>
     )
   }
