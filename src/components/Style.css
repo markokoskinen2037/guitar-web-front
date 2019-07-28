@@ -26,6 +26,14 @@
   margin-top: 3px;
 }
 
+.song-favourite {
+  padding: 6px;
+  cursor: pointer;
+  background-color: #ffb100;
+  border: 1px solid black;
+  margin-top: 3px;
+}
+
 .song:hover {
   background-color: #d40000;
 }
@@ -43,7 +51,8 @@
 
 .playButton {
   cursor: pointer;
-  background: black;
+  color:black;
+  background: gold;
   padding: 0px 7px;
 }
 
