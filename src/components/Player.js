@@ -41,7 +41,7 @@ export default class Player extends Component {
 
   render() {
     return (
-      <div className="player">
+      <div id ="player">
         <ReactPlayer
           url={this.props.url}
           playing
