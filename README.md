@@ -9,3 +9,8 @@ Due to the videoplayers browser implementation, speedUp/speedDown features do no
 1. `git clone`
 2. `cd guitar-web-front`
 3. `npm install && npm start`
+
+##  How to deploy?
+1. `npm install -g firebase`
+2. `npm run build`
+3. `firebase deploy`
