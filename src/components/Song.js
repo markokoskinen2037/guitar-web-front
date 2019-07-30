@@ -10,22 +10,21 @@ export default class Song extends Component {
 
     var classname = "song"
     if (favourite) {
-      classname = "song-favourite"
+      classname = "song favourite"
     }
 
-    return (
-      <div
-        onClick={() => {
-          this.props.changeSongFunction(this.props.url)
-        }}
-        className={classname}
-      >
-        <span onClick={() => this.props.addFavourite(this.props.videoId)} className="playButton">+</span>
+    console.log(this.props)
 
-        <span className="songName" style={{ fontFamily: 'Roboto' }}>
-          {' '}
-          {this.props.name}
-        </span>
+    return (
+      <div  className={classname}>
+
+        <img onClick={() => { this.props.changeSongFunction(this.props.url) }} className="song__image" src={"https://img.youtube.com/vi/" + this.props.videoId + "/0.jpg"} />
+
+
+        <span onClick={() => this.props.addFavourite(this.props.videoId)} className="song__favouriteButton">+</span>
+
+        <span className="song__name" style={{ fontFamily: 'Roboto' }}>{this.props.name}</span>
+
       </div>
     )
   }
