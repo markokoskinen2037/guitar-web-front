@@ -1,42 +1,69 @@
 .songcontainer {
   background: #ca2121;
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
-.songSearchContainer {
+.songcontainer__songSearchContainer {
   margin-bottom: 20px;
   display: flex;
-  flex-direction: row;
-}
-
-.songSearchContainer > span {
-  flex-basis: 40%;
+  flex-basis: 100%;
 
 }
 
-.songSearchContainer > input {
-  flex-basis: 60%;
-}
-
+/* Song */
 .song {
-  padding: 6px;
+  padding: 20px;
   cursor: pointer;
   border: 1px solid black;
-  margin-top: 3px;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 1%; /* Seems to work, god knows why. */
+  max-height: 300px;
 }
 
-.song-favourite {
-  padding: 6px;
-  cursor: pointer;
-  background-color: #ffb100;
-  border: 1px solid black;
-  margin-top: 3px;
+.favourite {
+  background-color: gold;
 }
 
 .song:hover {
   background-color: #d40000;
 }
+
+.song__favouriteButton {
+  cursor: pointer;
+  color: #444;
+  background: gold;
+  padding: 11px 15px;
+  height: 20px;
+  width: 10px;
+  border-radius: 30px;
+  position: relative;
+  left: -27px;
+  top: -279px;
+  border: 1px solid #444;
+}
+
+.song__name {
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+  top: -30px;
+}
+
+.song__image {
+  height: 250px;
+  width: 333px;
+  position: relative;
+  top: 0px;
+}
+
+
+/*..............................................*/
 
 .loginButton {
   float: right;
@@ -47,13 +74,6 @@
   text-align: center;
   display: flex;
   flex-direction: row;
-}
-
-.playButton {
-  cursor: pointer;
-  color:black;
-  background: gold;
-  padding: 0px 7px;
 }
 
 .commandButton {
