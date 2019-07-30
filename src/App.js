@@ -136,7 +136,7 @@ class App extends Component {
               setPlayBackRate={this.setPlayBackRate}
               url={this.state.url}
             />
-            <SongList playBackList={this.state.playBackList} favourites={this.state.favourites} addFavourite={this.toggleFavourite} changeSongFunction={this.changeSongFunction} />
+            <SongList favourites={this.state.favourites} playBackList={this.state.playBackList} favourites={this.state.favourites} addFavourite={this.toggleFavourite} changeSongFunction={this.changeSongFunction} />
           </div>
         </div>
       </div>
