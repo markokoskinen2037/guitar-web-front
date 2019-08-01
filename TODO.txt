@@ -1,14 +1,16 @@
+[] More light colorscheme.
+[] Hover for song__image.
 [] Refactor filter+checkbox to its own component.
 [] Handle song filtering & favourites exclusively in SongList-component's state.
 [] Use shouldcomponentupdate for Song-components.
 [] List favourite songs first by default.
 [] Try github projects.
 [] Song that is playing should be highligted.
-[] Save list of favourites to localstorage.
 [] Button to clear searchFilter.
 [] "Favourite the song that is playing" functionality.
 [] Hovering favourited song should not change songs background back to red.
 
+[x] Save list of favourites to localstorage.
 [x] Implement "Favourites only" filter.
 [x] Show thumbnail in songlist.
 [x] Make songlist use smaller components.
