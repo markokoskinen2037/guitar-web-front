@@ -50,6 +50,19 @@ class App extends Component {
 
   componentDidMount() {
     this.loadYoutubeApi();
+
+    //Check localstorage for favourites
+    let favouritesFromLocalStorage = localStorage.getItem("favourites")
+    if(favouritesFromLocalStorage){
+      let parsedFavourites = JSON.parse(favouritesFromLocalStorage)
+      console.log(parsedFavourites)
+  
+      this.setState({
+        favourites: parsedFavourites
+      })
+    }
+
+
   }
 
   getSongListFromGoogle(pageToken) {
@@ -119,6 +132,10 @@ class App extends Component {
     this.setState({
       favourites: favs
     })
+
+    //Also update localstorage:
+    let temp = JSON.stringify(favs)
+    localStorage.setItem("favourites",temp)
   }
 
 
