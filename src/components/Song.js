@@ -13,8 +13,6 @@ export default class Song extends Component {
       classname = "song favourite"
     }
 
-    console.log(this.props)
-
     return (
       <div  className={classname}>
 
